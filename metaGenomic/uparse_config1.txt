@@ -1,0 +1,26 @@
+# configuration file for uparse pipeline
+
+
+# Uparse software location 
+# preferabbly version 8
+u="/home/roshan/Softwares/NGS_Metagenomic/UPARSE_pipeline/uparsecode/bin/usearch6.1.357_i86linux32"
+u2="/home/roshan/Softwares/NGS_Metagenomic/Usearch/usearch8.0.1623_i86linux32"
+
+# input data is fastq - from pandaseq merged s:s:p:b pipeline
+file_fastq="/anas/roshan-current/i2mc/burcelin/frm/data/testV.fastq"
+
+# result outdir - preferably empty dir if no dir is there then it will create a new one at that location
+dir_out="/anas/roshan-current/i2mc/burcelin/frm/runs/uparse_5"
+
+# rdp database location
+file_db1="/work/I2MC/DataBases/rdp_gold.fa"
+
+# for tax assessment green genes location
+file_97fasta=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_8_otus/rep_set/97_otus.fasta
+file_97tax=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+
+
+py_scripts="/home/roshan/Softwares/NGS_Metagenomic/Usearch/python_scripts"
+### should have using fasta_number.py, uc2otutab.py, uc2otutab_modified.py from this dir
+### later need to specify them intividually for more clarity
+
