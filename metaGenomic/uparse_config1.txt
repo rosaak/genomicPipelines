@@ -1,26 +1,51 @@
-# configuration file for uparse pipeline
+# Uparse and Vsearch software location 
+# uparse preferably version 8
 
-
-# Uparse software location 
-# preferabbly version 8
-u="/home/roshan/Softwares/NGS_Metagenomic/UPARSE_pipeline/uparsecode/bin/usearch6.1.357_i86linux32"
-u2="/home/roshan/Softwares/NGS_Metagenomic/Usearch/usearch8.0.1623_i86linux32"
+#u=/home/roshan/Softwares/NGS_Metagenomic/UPARSE_pipeline/uparsecode/bin/usearch6.1.357_i86linux32
+u=/home/roshan/Softwares/NGS_Metagenomic/Usearch/usearch8.0.1623_i86linux32
+v=/usr/local/bin/vsearch-1.1.3-linux-x86_64
 
 # input data is fastq - from pandaseq merged s:s:p:b pipeline
-file_fastq="/anas/roshan-current/i2mc/burcelin/frm/data/testV.fastq"
+file_fasta=/anas/i2mc/burcelin/miseq/pomie/finalFastq/pomie.fasta
+file_fastq=/anas/i2mc/burcelin/miseq/pomie/finalFastq/pomie.fastq
 
-# result outdir - preferably empty dir if no dir is there then it will create a new one at that location
-dir_out="/anas/roshan-current/i2mc/burcelin/frm/runs/uparse_5"
+# Metadata file - need to change this
+file_meta_data=/anas/roshan-current/i2mc/burcelin/frm/runs/targets/pomie_mapping/metadata01.corrected.csv
 
-# rdp database location
-file_db1="/work/I2MC/DataBases/rdp_gold.fa"
+# Result outdir - preferably empty dir , otherise may overwrite or conflict
+dir_out=/anas/roshan-current/i2mc/burcelin/frm/runs/pomie_uparse_01
 
-# for tax assessment green genes location
-file_97fasta=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_8_otus/rep_set/97_otus.fasta
-file_97tax=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+# Rdp gold database location for chimera ref checking
+file_db1=/anas/roshan-current/i2mc/burcelin/frm/databases/RDP/rdp_gold.fa
 
+# Tax assessment green genes location - toogle between gg13.8, gg13.5 and silva119
+# GG 13.5 
+file_gg135_97fasta=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_5_otus/97_otus.fasta
+file_gg135_97tax=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_5_otus/97_otu_taxonomy.txt
 
-py_scripts="/home/roshan/Softwares/NGS_Metagenomic/Usearch/python_scripts"
+# GG 13.8
+file_gg138_97fasta=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_8_otus/rep_set/97_otus.fasta
+file_gg138_97tax=/anas/roshan-current/i2mc/burcelin/frm/databases/gg_13_8_otus/taxonomy/97_otu_taxonomy.txt
+
+# Silva 119
+file_s119_97fasta=/anas/roshan-current/i2mc/burcelin/frm/databases/Silva_qiime_formated/S119_97/Silva_119_rep_set97.fna
+file_s119_97tax=/anas/roshan-current/i2mc/burcelin/frm/databases/Silva_qiime_formated/S119_97/taxonomy_97_7_levels.txt
+
+# Tax assessment rdp location
+# Usearch tax files tt and tc
+u_db16s=/anas/roshan-current/i2mc/burcelin/frm/databases/usearch_tax/rdp_16s.fa
+u_db16s_tt=/anas/roshan-current/i2mc/burcelin/frm/databases/usearch_tax/rdp_16s.tt
+# There is a tc file also which I have to put it at the location 
+
+# Python Scripts 
+py_scripts=/home/roshan/Softwares/NGS_Metagenomic/Usearch/python_scripts
 ### should have using fasta_number.py, uc2otutab.py, uc2otutab_modified.py from this dir
 ### later need to specify them intividually for more clarity
+
+# Qiime Scripts - these scripts are in a separate python virtual env - under which I installed qiime
+# So its is not in /usr/local/bin
+assigntaxonomy=/home/roshan/Softwares/Qiime_env/QiimeVenv/bin/assign_taxonomy.py
+p_assigntaxonomy_uclust=/home/roshan/Softwares/Qiime_env/QiimeVenv/bin/parallel_assign_taxonomy_uclust.py
+# don't use it - unless rdp_classifier is set
+p_assigntaxonomy_rdp=/home/roshan/Softwares/Qiime_env/QiimeVenv/bin/parallel_assign_taxonomy_rdp.py
 
